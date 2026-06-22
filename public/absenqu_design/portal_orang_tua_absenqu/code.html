@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portal Orang Tua - AbsenQu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#006e1c",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container": "#f0eded",
+                        "primary-fixed": "#acf4a4",
+                        "error": "#ba1a1a",
+                        "surface-bright": "#fcf9f8",
+                        "on-primary-fixed-variant": "#0c5216",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#78dc77",
+                        "on-secondary-fixed": "#002204",
+                        "surface-container-high": "#eae7e7",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#171d14",
+                        "primary-container": "#1b5e20",
+                        "on-secondary-fixed-variant": "#005313",
+                        "error-container": "#ffdad6",
+                        "on-background": "#1b1c1c",
+                        "on-primary-fixed": "#002203",
+                        "outline-variant": "#c0c9bb",
+                        "on-surface": "#1b1c1c",
+                        "primary": "#00450d",
+                        "on-secondary-container": "#00731e",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#2a6b2c",
+                        "inverse-primary": "#91d78a",
+                        "tertiary-fixed": "#dee5d6",
+                        "on-surface-variant": "#41493e",
+                        "on-tertiary-fixed-variant": "#42493e",
+                        "background": "#fcf9f8",
+                        "surface-container-low": "#f6f3f2",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#363d33",
+                        "surface-variant": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c2c9bb",
+                        "on-primary-container": "#90d689",
+                        "surface-dim": "#dcd9d9",
+                        "outline": "#717a6d",
+                        "tertiary-container": "#4d5449",
+                        "secondary-fixed": "#94f990",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-surface": "#303030",
+                        "surface": "#fcf9f8",
+                        "on-tertiary-container": "#c1c8ba",
+                        "secondary-container": "#91f78e",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "base": "4px",
+                        "container-margin": "24px",
+                        "sm": "12px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "xs": "8px",
+                        "xl": "32px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-sm": ["Inter"],
+                        "button-text": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "button-text": ["14px", { "lineHeight": "1", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "label-bold": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F1F8E9; /* Level 0 Base from Style Guidance */
+            color: theme('colors.on-background');
+        }
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: theme('colors.surface-container-lowest'); 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.outline-variant'); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: theme('colors.outline'); 
+        }
+    </style>
+</head>
+<body class="font-body-sm text-body-sm min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface dark:bg-surface border-b border-outline-variant flex justify-between items-center w-full px-lg py-sm sticky top-0 z-40">
+<div class="flex items-center gap-sm">
+<span class="font-headline-md text-headline-md text-primary dark:text-inverse-primary font-bold">AbsenQu</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-opacity opacity-80 hover:opacity-100 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden border border-outline-variant cursor-pointer opacity-80 hover:opacity-100 transition-opacity">
+<img alt="User Avatar" class="w-full h-full object-cover" data-alt="A clean, professional headshot of a friendly Asian parent, mid-30s, smiling warmly. The lighting is soft and natural, emphasizing approachability and trust within an educational context. The background is a crisp, bright white, aligning with a clean, light-mode minimalist design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkYFWg2x7gL5AsJhyroTS6347n18OEA_96e81Fcv8y5733fJy_ql2x3K8VJsuQ0eQGNmKN6TMsvesW4O_sx_aUBZ_ZT7J-vlYS_a31ycZ__38aPN75x8yFCpL6FdCmB7rSigzukJDratRD2pt1uwSG-9E1Tj4YU7IYQx9885OXqKHrjAghDc1tdC7IGFet2y5KzCPmiUJL9ysliFqsSWAjBEWP9AqWqLkfmL1wdX-HCeAqNcffqdCB_6K316twoqlFPQLqCuZZyxuI"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="max-w-[1200px] mx-auto p-md md:p-container-margin grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-gutter">
+<!-- Header Section -->
+<header class="col-span-4 md:col-span-8 lg:col-span-12 flex flex-col md:flex-row justify-between items-start md:items-end mb-lg gap-md">
+<div>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-base">Portal Orang Tua</p>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-background">Selamat datang, Bpk. Budi Santoso</h1>
+</div>
+<button class="bg-primary-container text-on-primary border-none rounded hover:bg-primary-fixed-variant px-md py-sm font-button-text text-button-text flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit_document</span>
+                Ajukan Izin
+            </button>
+</header>
+<!-- Bento Grid Layout -->
+<div class="col-span-4 md:col-span-8 lg:col-span-12 grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Student Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg lg:col-span-1 flex flex-col items-center text-center">
+<div class="w-24 h-24 rounded-full border border-outline-variant p-base mb-md bg-surface">
+<img alt="Student Photo" class="w-full h-full object-cover rounded-full" data-alt="A portrait of a cheerful Indonesian middle school student wearing a neat school uniform. The student has a bright expression, looking directly at the camera. The background is a solid, clean light green (#F1F8E9) to match the educational platform's visual identity, conveying a positive and disciplined mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCS0I1U1JuwMmlJQ_AlG3ji9ZWa1i2-XUuYx2gC77uaEUkh3UQVwl2ru0BjbxV9-alqa4vc40XiiOmRDuLAVi2H2AF4Dqn38SkUdsd_AxG_OtqRs4xvyG-b8Fzg269nHzZ7NScgjJhtb_u-AmXLB-aplYbSoir5BGYQ1ywiD3P0JxE0tg-psEef_Z-agWfQ6VsWfCWPK_pPFobCsOcbr2IixMfUR-FpSU1xHeMkDBDfnG7ezHId0erS51jw-QO6mgJ_G-21DxtdZyN"/>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-base">Dimas Santoso</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low px-sm py-xs rounded border border-outline-variant">Kelas 8B - Reguler</p>
+<div class="w-full h-px bg-outline-variant my-md"></div>
+<div class="w-full flex justify-between font-body-sm text-body-sm">
+<span class="text-on-surface-variant">NISN</span>
+<span class="font-semibold text-on-background">0012345678</span>
+</div>
+<div class="w-full flex justify-between font-body-sm text-body-sm mt-sm">
+<span class="text-on-surface-variant">Wali Kelas</span>
+<span class="font-semibold text-on-background">Ibu Ratna S.Pd</span>
+</div>
+</div>
+<!-- Dashboard Stats & Chart -->
+<div class="lg:col-span-2 flex flex-col gap-gutter">
+<!-- Monthly Summary Cards -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<!-- Hadir -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider mb-sm">Hadir</span>
+<div class="flex items-end gap-sm">
+<span class="font-headline-lg text-headline-lg text-primary-container leading-none">18</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Hari</span>
+</div>
+</div>
+<!-- Terlambat -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider mb-sm">Terlambat</span>
+<div class="flex items-end gap-sm">
+<span class="font-headline-lg text-headline-lg text-[#FBC02D] leading-none">2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Hari</span>
+</div>
+</div>
+<!-- Izin -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider mb-sm">Izin/Sakit</span>
+<div class="flex items-end gap-sm">
+<span class="font-headline-lg text-headline-lg text-secondary leading-none">1</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Hari</span>
+</div>
+</div>
+<!-- Alpha -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-md flex flex-col">
+<span class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider mb-sm">Alpha</span>
+<div class="flex items-end gap-sm">
+<span class="font-headline-lg text-headline-lg text-error leading-none">0</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mb-1">Hari</span>
+</div>
+</div>
+</div>
+<!-- Weekly Trend Chart -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-lg flex-1">
+<div class="flex justify-between items-center border-b border-outline-variant pb-md mb-md">
+<h3 class="font-headline-md text-headline-md text-on-background">Tren Kehadiran Mingguan</h3>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Minggu Ini</span>
+</div>
+<!-- Simple CSS Bar Chart -->
+<div class="h-48 w-full flex items-end justify-between gap-2 md:gap-4 px-2 pt-4">
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-[#4CAF50] rounded-t-sm transition-all group-hover:bg-primary-container" style="height: 100%;"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Sen</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-[#4CAF50] rounded-t-sm transition-all group-hover:bg-primary-container" style="height: 100%;"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Sel</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-[#FBC02D] rounded-t-sm transition-all group-hover:opacity-80" style="height: 100%;"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Rab</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-[#4CAF50] rounded-t-sm transition-all group-hover:bg-primary-container" style="height: 100%;"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Kam</span>
+</div>
+<div class="flex flex-col items-center gap-2 flex-1 group">
+<div class="w-full bg-outline-variant rounded-t-sm" style="height: 20%;"></div>
+<span class="font-label-bold text-label-bold text-on-surface-variant">Jum</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- History Table Section -->
+<div class="col-span-4 md:col-span-8 lg:col-span-12 bg-surface-container-lowest border border-outline-variant rounded-lg overflow-hidden mt-xl">
+<div class="bg-[#F1F8E9] px-lg py-md border-b border-outline-variant flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md text-on-background">Riwayat 7 Hari Terakhir</h3>
+<button class="text-primary font-button-text text-button-text hover:underline">Lihat Semua</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">
+<th class="p-md font-medium">Tanggal</th>
+<th class="p-md font-medium">Jam Masuk</th>
+<th class="p-md font-medium">Jam Pulang</th>
+<th class="p-md font-medium">Status</th>
+<th class="p-md font-medium">Keterangan</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm text-on-background">
+<tr class="border-b border-outline-variant hover:bg-[#F9F9F9] transition-colors">
+<td class="p-md">Kamis, 24 Okt 2023</td>
+<td class="p-md">06:45</td>
+<td class="p-md">14:30</td>
+<td class="p-md">
+<span class="bg-[#4CAF50] text-[#1B5E20] px-sm py-xs rounded-full font-label-bold text-label-bold">HADIR</span>
+</td>
+<td class="p-md text-on-surface-variant">-</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-[#F9F9F9] transition-colors">
+<td class="p-md">Rabu, 23 Okt 2023</td>
+<td class="p-md text-[#FBC02D]">07:15</td>
+<td class="p-md">14:30</td>
+<td class="p-md">
+<span class="bg-[#FBC02D] text-[#3E2723] px-sm py-xs rounded-full font-label-bold text-label-bold">TERLAMBAT</span>
+</td>
+<td class="p-md text-on-surface-variant">Macet di jalan</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-[#F9F9F9] transition-colors">
+<td class="p-md">Selasa, 22 Okt 2023</td>
+<td class="p-md">06:50</td>
+<td class="p-md">14:30</td>
+<td class="p-md">
+<span class="bg-[#4CAF50] text-[#1B5E20] px-sm py-xs rounded-full font-label-bold text-label-bold">HADIR</span>
+</td>
+<td class="p-md text-on-surface-variant">-</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-[#F9F9F9] transition-colors">
+<td class="p-md">Senin, 21 Okt 2023</td>
+<td class="p-md">06:40</td>
+<td class="p-md">15:00</td>
+<td class="p-md">
+<span class="bg-[#4CAF50] text-[#1B5E20] px-sm py-xs rounded-full font-label-bold text-label-bold">HADIR</span>
+</td>
+<td class="p-md text-on-surface-variant">Ekskul</td>
+</tr>
+<tr class="border-b border-outline-variant hover:bg-[#F9F9F9] transition-colors">
+<td class="p-md">Jumat, 18 Okt 2023</td>
+<td class="p-md text-on-surface-variant">-</td>
+<td class="p-md text-on-surface-variant">-</td>
+<td class="p-md">
+<span class="bg-surface-container-high text-on-surface px-sm py-xs rounded-full border border-outline-variant font-label-bold text-label-bold">IZIN</span>
+</td>
+<td class="p-md text-on-surface-variant">Acara Keluarga</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+</body></html>

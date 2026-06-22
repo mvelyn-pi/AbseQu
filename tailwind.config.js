@@ -1,0 +1,123 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: [
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+        './resources/js/**/*.js',
+    ],
+    theme: {
+        extend: {
+            fontFamily: {
+                inter: ['Inter', 'sans-serif'],
+                'body-sm': ['Inter', 'sans-serif'],
+                'button-text': ['Inter', 'sans-serif'],
+                'headline-md': ['Inter', 'sans-serif'],
+                'label-bold': ['Inter', 'sans-serif'],
+                'body-lg': ['Inter', 'sans-serif'],
+                'headline-lg': ['Inter', 'sans-serif'],
+                'headline-lg-mobile': ['Inter', 'sans-serif'],
+            },
+            fontSize: {
+                'body-sm': ['14px', { lineHeight: '1.5', fontWeight: '400' }],
+                'button-text': ['14px', { lineHeight: '1', fontWeight: '600' }],
+                'headline-md': ['20px', { lineHeight: '1.4', fontWeight: '600' }],
+                'label-bold': ['12px', { lineHeight: '1', letterSpacing: '0.05em', fontWeight: '600' }],
+                'body-lg': ['16px', { lineHeight: '1.6', fontWeight: '400' }],
+                'headline-lg': ['32px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
+                'headline-lg-mobile': ['24px', { lineHeight: '1.2', fontWeight: '700' }],
+            },
+            colors: {
+                // Material Design green palette
+                'primary': '#00450d',
+                'on-primary': '#ffffff',
+                'primary-container': '#1b5e20',
+                'on-primary-container': '#90d689',
+                'primary-fixed': '#acf4a4',
+                'primary-fixed-dim': '#91d78a',
+                'on-primary-fixed': '#002203',
+                'on-primary-fixed-variant': '#0c5216',
+
+                'secondary': '#006e1c',
+                'on-secondary': '#ffffff',
+                'secondary-container': '#91f78e',
+                'on-secondary-container': '#00731e',
+                'secondary-fixed': '#94f990',
+                'secondary-fixed-dim': '#78dc77',
+                'on-secondary-fixed': '#002204',
+                'on-secondary-fixed-variant': '#005313',
+
+                'tertiary': '#363d33',
+                'on-tertiary': '#ffffff',
+                'tertiary-container': '#4d5449',
+                'on-tertiary-container': '#c1c8ba',
+                'tertiary-fixed': '#dee5d6',
+                'tertiary-fixed-dim': '#c2c9bb',
+                'on-tertiary-fixed': '#171d14',
+                'on-tertiary-fixed-variant': '#42493e',
+
+                'error': '#ba1a1a',
+                'on-error': '#ffffff',
+                'error-container': '#ffdad6',
+                'on-error-container': '#93000a',
+
+                'background': '#fcf9f8',
+                'on-background': '#1b1c1c',
+                'surface': '#fcf9f8',
+                'on-surface': '#1b1c1c',
+                'surface-variant': '#e5e2e1',
+                'on-surface-variant': '#41493e',
+                'surface-container-lowest': '#ffffff',
+                'surface-container-low': '#f6f3f2',
+                'surface-container': '#f0eded',
+                'surface-container-high': '#eae7e7',
+                'surface-container-highest': '#e5e2e1',
+                'surface-dim': '#dcd9d9',
+                'surface-bright': '#fcf9f8',
+                'surface-tint': '#2a6b2c',
+
+                'outline': '#717a6d',
+                'outline-variant': '#c0c9bb',
+                'inverse-surface': '#303030',
+                'inverse-on-surface': '#f3f0ef',
+                'inverse-primary': '#91d78a',
+
+                // Accent colors for attendance status
+                'hadir': '#4CAF50',
+                'terlambat': '#FBC02D',
+                'alpha-red': '#D32F2F',
+            },
+            borderRadius: {
+                'DEFAULT': '0.25rem',
+                'lg': '0.5rem',
+                'xl': '0.75rem',
+                'full': '9999px',
+            },
+            spacing: {
+                'base': '4px',
+                'container-margin': '24px',
+                'xs': '8px',
+                'sm': '12px',
+                'md': '16px',
+                'gutter': '16px',
+                'lg': '24px',
+                'xl': '32px',
+            },
+            animation: {
+                'scan-line': 'scan 3s cubic-bezier(0.4, 0, 0.2, 1) infinite',
+                'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+            },
+            keyframes: {
+                scan: {
+                    '0%, 100%': { transform: 'translateY(0)', opacity: '0' },
+                    '10%': { opacity: '1' },
+                    '50%': { transform: 'translateY(100%)' },
+                    '90%': { opacity: '1' },
+                },
+            },
+        },
+    },
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
+};

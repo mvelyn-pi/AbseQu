@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AbsenQu - Data Guru</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e5e2e1",
+                      "surface-tint": "#2a6b2c",
+                      "primary-container": "#1b5e20",
+                      "on-tertiary-fixed-variant": "#42493e",
+                      "on-secondary-fixed": "#002204",
+                      "surface-container-high": "#eae7e7",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#78dc77",
+                      "error": "#ba1a1a",
+                      "on-secondary": "#ffffff",
+                      "surface-container-highest": "#e5e2e1",
+                      "tertiary-container": "#4d5449",
+                      "inverse-surface": "#303030",
+                      "tertiary": "#363d33",
+                      "outline": "#717a6d",
+                      "surface-dim": "#dcd9d9",
+                      "on-primary-fixed-variant": "#0c5216",
+                      "primary-fixed-dim": "#91d78a",
+                      "tertiary-fixed": "#dee5d6",
+                      "secondary-fixed": "#94f990",
+                      "surface-container": "#f0eded",
+                      "outline-variant": "#c0c9bb",
+                      "on-secondary-fixed-variant": "#005313",
+                      "inverse-on-surface": "#f3f0ef",
+                      "on-error-container": "#93000a",
+                      "tertiary-fixed-dim": "#c2c9bb",
+                      "on-primary-container": "#90d689",
+                      "on-error": "#ffffff",
+                      "background": "#fcf9f8",
+                      "on-tertiary-container": "#c1c8ba",
+                      "on-primary-fixed": "#002203",
+                      "inverse-primary": "#91d78a",
+                      "on-tertiary-fixed": "#171d14",
+                      "on-surface-variant": "#41493e",
+                      "on-tertiary": "#ffffff",
+                      "primary-fixed": "#acf4a4",
+                      "surface-container-low": "#f6f3f2",
+                      "surface-bright": "#fcf9f8",
+                      "secondary-container": "#91f78e",
+                      "on-primary": "#ffffff",
+                      "primary": "#00450d",
+                      "surface": "#fcf9f8",
+                      "on-background": "#1b1c1c",
+                      "on-surface": "#1b1c1c",
+                      "on-secondary-container": "#00731e",
+                      "error-container": "#ffdad6",
+                      "secondary": "#006e1c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "base": "4px",
+                      "xs": "8px",
+                      "container-margin": "24px",
+                      "sm": "12px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "button-text": ["Inter"],
+                      "label-bold": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "button-text": ["14px", {"lineHeight": "1", "fontWeight": "600"}],
+                      "label-bold": ["12px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #fcf9f8;
+            color: #1b1c1c;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="font-body-lg text-body-lg overflow-x-hidden">
+<!-- SideNavBar Integration -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 border-r border-outline-variant bg-surface z-50">
+<div class="px-lg py-xl">
+<h1 class="font-headline-md text-headline-md text-primary font-bold">AbsenQu</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Admin Portal</p>
+</div>
+<nav class="flex-1 px-md space-y-base overflow-y-auto no-scrollbar">
+<!-- Navigation Items Mapping -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-low duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-low duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+<span class="font-body-sm">Scanner</span>
+</a>
+<div class="mt-lg mb-xs px-md">
+<span class="font-label-bold text-label-bold text-outline uppercase tracking-wider">Administrator</span>
+</div>
+<!-- Active Item: Data Guru (Mapped to Siswa/Groups structure logic) -->
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-secondary font-bold border-r-2 border-secondary bg-surface-container-low" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-sm">Data Guru</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-low duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-body-sm">Siswa</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-low duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-body-sm">Kelas</span>
+</a>
+<div class="mt-lg mb-xs px-md">
+<span class="font-label-bold text-label-bold text-outline uppercase tracking-wider">Reporting</span>
+</div>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-low duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="font-body-sm">Leaderboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-low duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span class="font-body-sm">Izin Digital</span>
+</a>
+<div class="mt-auto pt-xl">
+<a class="flex items-center gap-md px-md py-sm rounded transition-colors text-on-surface-variant hover:bg-surface-container-low duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-body-sm">Pengaturan</span>
+</a>
+</div>
+</nav>
+</aside>
+<!-- TopNavBar Integration -->
+<header class="flex justify-between items-center w-full px-lg py-sm sticky top-0 z-40 ml-64 bg-surface border-b border-outline-variant max-w-[calc(100%-16rem)]">
+<div class="flex items-center flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-md py-xs bg-surface-container-low border border-outline-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-sm" placeholder="Cari data guru..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="relative p-xs text-on-surface-variant hover:text-primary transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-surface"></span>
+</button>
+<div class="flex items-center gap-md border-l border-outline-variant pl-lg">
+<div class="text-right hidden sm:block">
+<p class="font-label-bold text-label-bold text-on-surface">Admin Utama</p>
+<p class="font-body-sm text-[10px] text-on-surface-variant uppercase">Superuser</p>
+</div>
+<img alt="User Avatar" class="w-10 h-10 rounded-full border border-outline-variant object-cover" data-alt="A professional headshot of a school administrator in a bright, modern office setting. The person is wearing a clean white shirt and has a friendly, professional expression. The background is softly blurred with hints of green foliage and minimalist architectural lines, reflecting a high-end educational environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7s8tpFlkN-WAfpS5RfEbiZe_F2LYwJ501dC3753iikkBpqLlGUx1AkaghQGD1LN3J4guW0oDARVV201ueYQXP17sWNl95vp1DGCvVi3H-SUjmye_A2H6fc7FJcMjlfTaMkIbBItWcLim-GD4O8s876fprt6ySSyLXS8Vz0xNJENDSZ75JzdmCPGgzPi2KQkTlUFoiWEcQ8uSNECRB5eSVcm90lrjz-7OEAJsoK-KfwuVPSuvYWvMo0AhAJEqEyv5IflIKL4op2jPv"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-lg min-h-screen">
+<div class="max-w-7xl mx-auto space-y-lg">
+<!-- Page Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Data Guru</h2>
+<p class="font-body-lg text-on-surface-variant">Manajemen data tenaga pendidik di lingkungan sekolah.</p>
+</div>
+<button class="inline-flex items-center gap-xs px-lg py-sm bg-primary text-on-primary font-button-text text-button-text rounded-lg hover:bg-primary-container transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                    Tambah Guru
+                </button>
+</div>
+<!-- Bento Statistics Row (Minor high-end UI pattern) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-surface border border-outline-variant p-lg rounded-xl flex items-center gap-lg">
+<div class="w-12 h-12 bg-primary-container/10 flex items-center justify-center rounded-lg text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase">Total Guru</p>
+<p class="font-headline-md text-headline-md text-on-surface">42 Orang</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-lg rounded-xl flex items-center gap-lg">
+<div class="w-12 h-12 bg-secondary-container/20 flex items-center justify-center rounded-lg text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase">Aktif Hari Ini</p>
+<p class="font-headline-md text-headline-md text-on-surface">38 Orang</p>
+</div>
+</div>
+<div class="bg-surface border border-outline-variant p-lg rounded-xl flex items-center gap-lg">
+<div class="w-12 h-12 bg-error-container/20 flex items-center justify-center rounded-lg text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event_busy</span>
+</div>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface-variant uppercase">Izin/Sakit</p>
+<p class="font-headline-md text-headline-md text-on-surface">4 Orang</p>
+</div>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-white border border-outline-variant rounded-xl overflow-hidden">
+<!-- Card Header/Filter Strip -->
+<div class="bg-surface-container-low px-lg py-md border-b border-outline-variant flex justify-between items-center">
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-xs px-md py-xs border border-outline-variant rounded-full font-label-bold text-label-bold text-on-surface hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                            Filter Mata Pelajaran
+                        </button>
+</div>
+<div class="text-on-surface-variant font-body-sm">
+                        Menampilkan 1-10 dari 42 guru
+                    </div>
+</div>
+<!-- The Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-outline-variant">
+<th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider w-16 text-center">No</th>
+<th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">NUPTK</th>
+<th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Nama Guru</th>
+<th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Mata Pelajaran</th>
+<th class="px-lg py-md font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider text-right">Aksi</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md font-body-sm text-on-surface text-center">1</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">197805122005011003</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center font-bold text-xs">AH</div>
+<div>
+<p class="font-label-bold text-on-surface">Agus Hermawan, M.Pd</p>
+<p class="font-body-sm text-[10px] text-on-surface-variant">NIP: 19780512...</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex px-xs py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-bold text-[11px]">Matematika</span>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error transition-colors" title="Hapus">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md font-body-sm text-on-surface text-center">2</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">198211052009022001</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-tertiary-container text-white flex items-center justify-center font-bold text-xs">SL</div>
+<div>
+<p class="font-label-bold text-on-surface">Siti Lailatul, S.Si</p>
+<p class="font-body-sm text-[10px] text-on-surface-variant">NIP: 19821105...</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex px-xs py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-bold text-[11px]">Biologi</span>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error transition-colors" title="Hapus">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md font-body-sm text-on-surface text-center">3</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">198504202012011005</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs">BP</div>
+<div>
+<p class="font-label-bold text-on-surface">Bambang Pamungkas, S.T</p>
+<p class="font-body-sm text-[10px] text-on-surface-variant">NIP: 19850420...</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex px-xs py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-bold text-[11px]">Informatika</span>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error transition-colors" title="Hapus">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md font-body-sm text-on-surface text-center">4</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">199002152018022003</td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<img alt="Teacher Avatar" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A portrait of a young female teacher in her early 30s. She is wearing glasses and a professional blue blazer. She stands in front of a soft-focus background of a classroom with natural light coming from large windows. The overall aesthetic is bright, optimistic, and clean, aligned with a modern educational design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZq-1YJi8RPrzpSYNA2EWC-hrip1YvLJ2bXRv8Qy3PNOwdNbWsfk965lmbFHfP3lPjDS_W8HbGEuhmnz4sbnDRt8lFO7dfmHW1Ol6_6Epduoi2qnhvjChT7gN-b7vgrJLK89twJ9xbwq61FxK5Uu53ousNL2-ClXTsqy8qPt1q6guV-wHR1KGzwa0Y4KBZwNIP3Ba3Q3S7HrZ1a9PiX6USOI77jKhefK5BEDdMD2nJom-slWnLTWA_NNCdtfMGQ-oiOmL9timEsTQS"/>
+<div>
+<p class="font-label-bold text-on-surface">Diana Putri, S.Pd</p>
+<p class="font-body-sm text-[10px] text-on-surface-variant">NIP: 19900215...</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md">
+<span class="inline-flex px-xs py-1 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-bold text-[11px]">Bhs. Inggris</span>
+</td>
+<td class="px-lg py-md text-right">
+<div class="flex justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors" title="Edit">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:text-error transition-colors" title="Hapus">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer/Pagination -->
+<div class="px-lg py-md bg-surface flex flex-col sm:flex-row justify-between items-center gap-md border-t border-outline-variant">
+<div class="flex items-center gap-xs">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded bg-primary text-on-primary font-label-bold text-label-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant font-label-bold text-label-bold hover:bg-surface-container-low">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant font-label-bold text-label-bold hover:bg-surface-container-low">3</button>
+<span class="px-xs text-on-surface-variant">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant font-label-bold text-label-bold hover:bg-surface-container-low">5</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-low">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<div class="flex items-center gap-md">
+<p class="font-body-sm text-on-surface-variant">Tampilkan</p>
+<select class="bg-surface border border-outline-variant rounded px-xs py-1 font-body-sm text-on-surface focus:ring-1 focus:ring-primary outline-none">
+<option>10</option>
+<option>25</option>
+<option>50</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Footer Section -->
+<footer class="pt-xl pb-lg flex flex-col md:flex-row justify-between items-center gap-md border-t border-outline-variant text-on-surface-variant">
+<p class="font-body-sm">© 2024 AbsenQu Admin System. All rights reserved.</p>
+<div class="flex gap-lg font-body-sm">
+<a class="hover:text-primary transition-colors" href="#">Bantuan</a>
+<a class="hover:text-primary transition-colors" href="#">Syarat & Ketentuan</a>
+<a class="hover:text-primary transition-colors" href="#">Privasi</a>
+</div>
+</footer>
+</div>
+</main>
+<!-- Contextual micro-interaction logic -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ripple effect simulated for primary buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('mousedown', function() {
+                    this.classList.add('scale-95');
+                });
+                button.addEventListener('mouseup', function() {
+                    this.classList.remove('scale-95');
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.classList.remove('scale-95');
+                });
+            });
+        });
+    </script>
+</body></html>
