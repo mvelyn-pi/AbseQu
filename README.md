@@ -378,14 +378,7 @@ php artisan storage:link
 ```
 
 ---
-
-## 📄 Lisensi
-
-Proyek ini dilisensikan di bawah **MIT License** — bebas digunakan, dimodifikasi, dan didistribusikan.
-
----
-
 <div align="center">
-  <p>Dibuat dengan ❤️ menggunakan Laravel & Livewire</p>
+  <p>Dibuat dengan menggunakan Laravel & Livewire</p>
   <p><em>AbsenQu — Absensi cerdas untuk sekolah modern</em></p>
 </div>
