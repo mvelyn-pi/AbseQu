@@ -8,4 +8,10 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        host: '0.0.0.0', // Agar Vite bisa diakses dari luar kontainer
+        hmr: {
+            host: 'localhost', // Agar Hot Module Replacement mengarah ke laptopmu
+        },
+    },
 });

@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # 1. Kontainer Database MySQL
+  db:
+    image: mysql:8.0
+    container_name: absenqu-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: absenqu
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - absenqu-network
+
+  # 2. Kontainer Aplikasi Laravel (AbsenQu)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: absenqu-app
+    restart: always
+    ports:
+      - "8000:8000"
+      - "5173:5173" # Port yang digunakan oleh Vite untuk Hot Reloading
+    volumes:
+      - .:/var/www
+    depends_on:
+      - db
+    networks:
+      - absenqu-network
+
+networks:
+  absenqu-network:
+    driver: bridge
+
+volumes:
+  db_data:
